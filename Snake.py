@@ -6,6 +6,8 @@ gameOversound = pygame.mixer.Sound("mixkit-arcade-retro-game-over-213.wav")
 
 gameState = "Menu" 
 
+git = "Hub"
+
 score = 0
 screenW = 500
 screenH = 500
