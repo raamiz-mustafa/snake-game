@@ -1,0 +1,57 @@
+import pygame
+
+pygame.init()
+
+screenWidth = 800
+screenHeight = 700
+blue = (0, 0, 255)
+red = (255, 0, 0) 
+green = ( 0, 255, 0)
+col = green
+rcol = red
+
+screen = pygame.display.set_mode((screenWidth, screenHeight))
+
+rect1 = pygame.Rect((400, 350, 10, 10))
+player1 = pygame.Rect((200, 50, 150, 150))
+player2 = pygame.Rect((400, 50, 150, 150))
+player3 = pygame.Rect((600, 50, 150, 150))
+player4 = pygame.Rect((200, 250, 150, 150))
+player5 = pygame.Rect((200, 450, 150, 150))
+player6 = pygame.Rect((400, 250, 150, 150))
+player7 = pygame.Rect((600, 250, 150, 150))
+player8 = pygame.Rect((400, 450, 150, 150))
+player9 = pygame.Rect((600, 450, 150, 150))
+
+obstacles = [player1, player2, player3, player4, player5, player6, player7, player8, player9]
+
+
+
+run = True
+while run:
+
+    screen.fill((0, 0, 0))
+    col = blue
+    
+    for obstacle in obstacles:
+        if rect1.colliderect(obstacle):
+            col = green
+
+    pos = pygame.mouse.get_pos()
+    pygame.draw.rect(screen, rcol, rect1)
+    rect1.center = pos
+
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            run = False
+    
+
+    for obstacle in range(len(obstacles)):
+        pygame.draw.rect(screen, col, obstacles[obstacle])
+    
+
+    pygame.display.update()
+
+
+
+pygame.quit()
